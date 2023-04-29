@@ -10,7 +10,7 @@ output "frontend" {
 }
 
 data "aws_ami" "centos_ami"{
-  owners = 973714476881
+  owners = ["973714476881"]
   name_regex = "Centos-8-DevOps-Practice"
   }
 output "ami_details" {
