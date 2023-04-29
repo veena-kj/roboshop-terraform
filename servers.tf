@@ -7,6 +7,9 @@ resource "aws_instance" "frontend" {
 }
 output "frontend" {
   value=aws_instance.frontend.public_ip
+  }
+output "frontendIP" {
+  value=aws_instance.frontend.private_ip
 }
 
 data "aws_ami" "centos_ami"{
