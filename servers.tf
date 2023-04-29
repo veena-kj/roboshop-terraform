@@ -68,13 +68,13 @@ resource "aws_route53_record" "catalogue" {
 
 resource "aws_instance" "mysql" {
   ami=data.aws_ami.centos_ami.image_id
-  instance_type = "${var.instance_type}"
+  instance_type = "t3.micro"
   tags = {
     name="mysql"
   }
 }
 resource "aws_route53_record" "mysql" {
-  zone_id = "var.zone_id"
+  zone_id = "${var.zone_id}"
   name= "mysqld.e-platform.online"
   type = "A"
   ttl =30
