@@ -70,7 +70,7 @@ resource "aws_instance" "mysql" {
   ami=data.aws_ami.centos_ami.image_id
   instance_type = "t3.micro"
   tags = {
-    name="mysql"
+    Name="mysql"
   }
 }
 resource "aws_route53_record" "mysql" {
