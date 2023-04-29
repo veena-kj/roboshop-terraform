@@ -24,7 +24,7 @@ resource "aws_route53_record" "frontend" {
   name    = "frontendd.e.platform.online"
   type    = "A"
   ttl     = 30
-  records = [aws_instance.frontend.public_ip]
+  records = [aws_instance.frontend.private_ip]
 }
 
 resource "aws_instance" "mongodb" {
@@ -39,7 +39,7 @@ resource "aws_route53_record" "mongodb" {
   name    = "mongod.e.platform.online"
   type    = "A"
   ttl     = 30
-  records = [aws_instance.mongodb.public_ip]
+  records = [aws_instance.mongodb.private_ip]
 }
 
 resource "aws_instance" "catalogue" {
@@ -54,5 +54,5 @@ resource "aws_route53_record" "catalogue" {
   name    = "catalogued.e.platform.online"
   type    = "A"
   ttl     = 30
-  records = [aws_instance.catalogue.public_ip]
+  records = [aws_instance.catalogue.private_ip]
 }
