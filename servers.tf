@@ -133,7 +133,7 @@ resource "aws_instance" "rabbitmq" {
   }
 }
 
-resource "aws_route53_record" "redis" {
+resource "aws_route53_record" "rabbitmq" {
   zone_id = "Z08406313PSKR2N4EROKD"
   name    = "rabbitmqd.e-platform.online"
   type    = "A"
@@ -148,7 +148,7 @@ resource "aws_instance" "payment" {
   }
 }
 
-resource "aws_route53_record" "redis" {
+resource "aws_route53_record" "payment" {
   zone_id = "Z08406313PSKR2N4EROKD"
   name    = "paymentd.e-platform.online"
   type    = "A"
@@ -163,7 +163,7 @@ resource "aws_instance" "shipping" {
   }
 }
 
-resource "aws_route53_record" "redis" {
+resource "aws_route53_record" "shipping" {
   zone_id = "Z08406313PSKR2N4EROKD"
   name    = "shippingd.e-platform.online"
   type    = "A"
