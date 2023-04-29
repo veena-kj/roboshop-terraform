@@ -68,7 +68,7 @@ resource "aws_route53_record" "catalogue" {
 
 resource "aws_instance" "mysql" {
   ami=data.aws_ami.centos_ami.image_id
-  instance_type = "var.instance_type"
+  instance_type = "${var.instance_type}"
   tags = {
     name="mysql"
   }
