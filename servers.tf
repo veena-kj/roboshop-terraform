@@ -34,9 +34,7 @@ resource "aws_instance" "mongodb" {
     Name = "mongodb"
   }
 }
-output "Mongoip" {
-  value=aws_instance.mongodb.private_ip
-}
+
 resource "aws_route53_record" "mongodb" {
   zone_id = "Z08406313PSKR2N4EROKD"
   name    = "mongod.e.platform.online"
@@ -52,9 +50,7 @@ resource "aws_instance" "catalogue" {
     Name = "catalogue"
   }
 }
-output "catalogueip" {
-  value=aws_instance.catalogue.private_ip
-}
+
 resource "aws_route53_record" "catalogue" {
   zone_id = "Z08406313PSKR2N4EROKD"
   name    = "catalogued.e.platform.online"
