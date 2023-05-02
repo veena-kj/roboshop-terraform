@@ -1,4 +1,7 @@
-
+data "aws_ami" "centos_ami"{
+  owners = ["973714476881"]
+  name_regex = "Centos-8-DevOps-Practice"
+}
 resource "aws_instance" "frontend" {
   ami           = data.aws_ami.centos_ami.image_id
   instance_type = "t3.micro"
@@ -12,10 +15,7 @@ variable "instance_type" {
 variable "zone_id" {
   default = "Z08406313PSKR2N4EROKD"
 }
-data "aws_ami" "centos_ami"{
-  owners = ["973714476881"]
-  name_regex = "Centos-8-DevOps-Practice"
-}
+
 output "ami_details" {
   value = data.aws_ami.centos_ami.image_id
 }
