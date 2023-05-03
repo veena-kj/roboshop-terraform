@@ -37,7 +37,7 @@ variable "components" {
       instance_type = "t3.micro"
     }
     cart={
-      name = "cat"
+      name = "cart"
       instance_type = "t3.micro"
           }
     redis={
