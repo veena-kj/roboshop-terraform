@@ -3,9 +3,9 @@ data "aws_ami" "centos_ami"{
   most_recent = true
   name_regex = "Centos-8-DevOps-Practice"
 }
-data "aws_security_group" "securitygrp"{
-  name="allow-all-alt"
-}
+#data "aws_security_group" "securitygrp"{
+#  name="allow-all-alt"
+#}
 #resource "aws_instance" "frontend" {
 #  ami           = data.aws_ami.centos_ami.image_id
 #  instance_type = "t3.micro"
@@ -67,7 +67,7 @@ resource "aws_instance" "instance" {
   for_each = var.components
   ami = data.aws_ami.centos_ami.image_id
   instance_type = each.value["instance_type"]
-  vpc_security_group_ids = [data.aws_security_group.securitygrp.id]
+#  vpc_security_group_ids = [data.aws_security_group.securitygrp.id]
   tags = {
     Name = each.value["name"]
   }
