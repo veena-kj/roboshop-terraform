@@ -6,13 +6,13 @@ data "aws_ami" "centos_ami"{
 data "aws_security_group" "securitygrp"{
   name="allow-all"
 }
-resource "aws_instance" "frontend" {
-  ami           = data.aws_ami.centos_ami.image_id
-  instance_type = "t3.micro"
-    tags = {
-    Name = "frontend"
-  }
-}
+#resource "aws_instance" "frontend" {
+#  ami           = data.aws_ami.centos_ami.image_id
+#  instance_type = "t3.micro"
+#    tags = {
+#    Name = "frontend"
+#  }
+#}
 
 variable "components" {
   default = {
@@ -73,15 +73,16 @@ resource "aws_instance" "instance" {
   }
 }
 
+resource "aws_route53_record" "records" {
 
-#
-#resource "aws_route53_record" "frontend" {
-#  zone_id = "Z08406313PSKR2N4EROKD"
-#  name    = "frontend-dev.e-platform.online"
-#  type    = "A"
-#  ttl     = 30
-#  records = [aws_instance.frontend.private_ip]
-#}
+  for_each = var.components
+
+  zone_id = "Z08406313PSKR2N4EROKD"
+  name    = "${each.value["name"]}-dev.e-platform.online"
+  type    = "A"
+  ttl     = 30
+  records = [aws_instance.instance[each.value["name"]].private_ip]
+}
 #
 #resource "aws_instance" "mongodb" {
 #  ami           = data.aws_ami.centos_ami.image_id
