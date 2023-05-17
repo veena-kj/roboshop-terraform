@@ -1,4 +1,4 @@
- components = {
+components = {
 
   frontend={
     name = "frontend"
@@ -45,4 +45,4 @@
     instance_type = "t3.micro"
   }
 }
- env="dev"
+env="dev"
