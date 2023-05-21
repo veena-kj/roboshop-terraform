@@ -1,4 +1,4 @@
-components = {
+component = {
 
   frontend={
     name = "frontend"
@@ -15,6 +15,7 @@ components = {
   mysql={
     name = "mysql"
     instance_type = "t3.micro"
+    password = RoboShop@1
   }
   user={
     name = "user"
@@ -31,10 +32,12 @@ components = {
   rabbitmq={
     name = "rabbitmq"
     instance_type = "t3.micro"
+    password = "roboshop123"
   }
   payment={
     name = "payment"
     instance_type = "t3.micro"
+    password = "roboshop123"
   }
   shipping={
     name = "shipping"
@@ -45,4 +48,4 @@ components = {
     instance_type = "t3.micro"
   }
 }
-env="dev"
+env = "dev"
