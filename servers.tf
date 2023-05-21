@@ -4,7 +4,7 @@ resource "aws_instance" "instance" {
   instance_type = each.value["instance_type"]
   vpc_security_group_ids = [data.aws_security_group.securitygrp.id]
   tags = {
-    Name = each.value["name-${env}"]
+    Name = each.value["name"]
   }
   provisioner "remote-exec" {
     connection {
@@ -17,7 +17,7 @@ resource "aws_instance" "instance" {
       "rm -rf roboshop-shell",
       "git clone https://github.com/veena-kj/roboshop-shell.git",
       "ccd roboshop-shell",
-      "sudo bash ${each.value["name"]}".sh
+      "sudo bash ${each.value["name"]}.sh"
     ]
   }
 }
