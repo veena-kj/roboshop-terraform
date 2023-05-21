@@ -4,7 +4,7 @@ resource "aws_instance" "instance" {
   instance_type = each.value["instance_type"]
   vpc_security_group_ids = [data.aws_security_group.securitygrp.id]
   tags = {
-    Name = each.value["name"]
+    Name = each.value["name"]-dev
   }
   provisioner "remote-exec" {
     connection {
