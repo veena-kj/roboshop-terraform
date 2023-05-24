@@ -14,7 +14,7 @@ components = {
   }
   mysql={
     name = "mysql"
-    instance_type = "t3.small"
+    instance_type = "t2.small"
     password = "RoboShop@1"
   }
   user={
