@@ -42,6 +42,7 @@ components = {
   shipping={
     name = "shipping"
     instance_type = "t3.micro"
+    password = "RoboShop@1"
   }
   dispatch={
     name = "dispatch"
