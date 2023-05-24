@@ -21,7 +21,7 @@ depends_on = [aws_instance.instance, aws_route53_record.records]
        "rm -rf roboshop-shell",
        "git clone https://github.com/veena-kj/roboshop-shell",
        "cd roboshop-shell",
-       "sudo bash ${each.value["name"]}.sh ${each.value["password"]} "
+       "sudo bash ${each.value["name"]}.sh ${lookup(each.value, "password" , "null")} "
      ]
    }
  }
