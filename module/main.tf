@@ -3,12 +3,12 @@ resource "aws_instance" "instance" {
   instance_type = var.instance_type
   vpc_security_group_ids = [data.aws_security_group.securitygrp.id]
   tags = {
-    Name = var.env != "" ?  "${var.component_name}-${var.env}"  : var.component_name
+    Name = local.name
   }
 }
 resource "null_resource" "provisioner" {
 
-  depends_on = [aws_instance.instance, aws_route53_record.records]
+  depends_on = [ aws_instance.instance, aws_route53_record.records]
   provisioner "remote-exec" {
 
     connection {
