@@ -3,7 +3,7 @@ resource "aws_instance" "instance" {
   instance_type = var.instance_type
   vpc_security_group_ids = [data.aws_security_group.securitygrp.id]
   tags = {
-    Name = var.component_name
+    Name = var.env != "" ?  "${var.component_name}-${var.env}"  : var.component_name
   }
 }
 resource "null_resource" "provisioner" {
